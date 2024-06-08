@@ -4,6 +4,9 @@ var user_email = document.getElementById("user_email");
 var login_container = document.getElementById("login_container");
 var home_container = document.getElementById("home_container");
 var note = document.getElementById("note");
+var note1 = document.getElementById("note1");
+var note2 = document.getElementById("note2");
+
 
 function loginUser() {
     if (!email.value || !password.value)
@@ -40,16 +43,18 @@ function submitNote() {
   var obj = {
     email: email,
     note: note.value,
+    note1:note1.value,
+    note2:note2.value
   };
 
   saveValueToLocalStorage(obj);
   note.value = "";
+  note1.value = "";
+  note2.value = "";
 }
 
 function saveValueToLocalStorage(obj) {
   var notes = localStorage.getItem("notes");
-  console.log("notes from local storage=>", notes);
-
   if (notes) {
     notes = JSON.parse(notes);
     notes.push(obj);
@@ -73,7 +78,10 @@ function displayUserNotes() {
     notes.forEach(function (data, ind) {
       if (data.email === currentUserEmail) {
         var liElement = ` <li class="border rounded p-2 my-2">
-        <p class = "font-medium">${data.note}</p> 
+        <p class = "font-medium"> <p>Todo:${data.note}</p>
+         <p>description:${data.note1}</p>
+        <p>Category: ${data.note2}</p>
+        <p>${data.email}</p>
           </li>` ;
         list.innerHTML += liElement;
       }
