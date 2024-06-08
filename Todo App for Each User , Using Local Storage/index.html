@@ -103,7 +103,7 @@
   
       <div id="home_container">
         <div class="flex justify-between p-10">
-          <h1 style="font-size: 40px;">Hello, Welcome </h1>
+          <h1 style="font-size: 40px;">Welcome </h1>
           <span class="flex">
             <p style="font-size: 30px;" class="px-3" id="user_email"></p>
             <button  class="btn bg-pink-600 py-2 px-3 rounded text-white" onclick="logout()">Logout</button>
@@ -111,9 +111,14 @@
         </div>
   
         <div class="p-10">
-          <div>
-            <textarea class="border p-4 w-full" id="note" rows="5">Notes</textarea
-            >
+          <div style="font-display: flex;
+          justify-content: center;
+          align-items: center;">
+            <input id="note" type="text" id="">
+            <input id="note1" id="">
+            <input id="note2" id="">
+            <!-- <textarea class="border p-4 w-full" id="note" rows="1">Notes</textarea
+            > -->
             <div>
               <button
                 onclick="submitNote()"
